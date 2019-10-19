@@ -211,7 +211,10 @@ namespace Kitronik_Robotics_Board
         }
 
         /*convert 0-100 to 0-4095 (approx) We wont worry about the last 95 to make life simpler*/
-        let outputVal = Math.clamp(0, 100, speed) * 40;
+        /*Update: round the value based on 4095*/
+        /*let outputVal = Math.clamp(0, 100, speed) * 40.95;*/
+        
+        let outputVal = Math.round(Math.clamp(0, 100, speed) * 40.95);
 
         let buf = pins.createBuffer(2)
         let highByte = false
