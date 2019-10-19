@@ -129,7 +129,7 @@ namespace Kitronik_Robotics_Board
 
         // First set the prescaler to 50 hz
         buf[0] = PRESCALE_REG
-        buf[1] = 0x85 //1150Hz = 475 to hex 1DB
+        buf[1] = 0x5 //1150Hz = hex(25000000/(4096*1150))
         pins.i2cWriteBuffer(chipAddress, buf, false)
         //Block write via the all leds register to turn off all servo and motor outputs
         buf[0] = 0xFA
