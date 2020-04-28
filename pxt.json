@@ -1,6 +1,6 @@
 {
     "name": "pxt-kitronik-lego-motors",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Blocks for driving the Kitronik All-in-one Robotics Board for Lego Technic motors",
     "license": "MIT",
     "dependencies": {
