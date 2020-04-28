@@ -1,6 +1,6 @@
 # pxt-kitronik-robotics-board
 
-Custom blocks for www.kitronik.co.uk/5641 All-in-one Robotics Board for micro:bit
+Custom blocks for www.kitronik.co.uk/5641 All-in-one Robotics Board for micro:bit. It is customized for Lego PF motors, specially servo. PF Servo needs 1150Hz freq to step through it's 15 positions. Added Brake functionality too.
 
 ## Motors
 
@@ -18,6 +18,12 @@ Individual motor outputs can also be turned off.
 ```blocks
 Kitronik_Robotics_Board.motorOff(Kitronik_Robotics_Board.Motors.Motor3)
 ```
+
+Individual motor outputs can also be put in brake mode.
+```blocks
+Kitronik_Robotics_Board.brake(Kitronik_Robotics_Board.Motors.Motor3)
+```
+
 
 ## Servos
 
