@@ -129,7 +129,7 @@ namespace Kitronik_Robotics_Board
 
         // First set the prescaler to 50 hz
         buf[0] = PRESCALE_REG
-        buf[1] = 0x05 //1150Hz = hex(25000000/(4096*1150))
+        buf[1] = 0x04 //1150Hz = hex(25000000/(4096*1150)-1)
         pins.i2cWriteBuffer(chipAddress, buf, false)
         //Block write via the all leds register to turn off all servo and motor outputs
         buf[0] = 0xFA
@@ -299,6 +299,36 @@ namespace Kitronik_Robotics_Board
         buf[1] = 0x00
         pins.i2cWriteBuffer(chipAddress, buf, false)
     }
+
+    /**
+     * Brake the specified motor.
+     * @param motor which motor to brake
+     */
+    //% subcategory=Motors
+    //% group=Motors
+    //% blockId=kitronik_motor_brake
+    //% weight=95 blockGap=8
+    //%block="brake %motor"
+    export function motorBrake(motor: Motors): void {
+
+        let buf = pins.createBuffer(2)
+
+        buf[0] = motor
+        buf[1] = 0xFFF
+        pins.i2cWriteBuffer(chipAddress, buf, false)
+        buf[0] = motor + 1
+        buf[1] = 0xFFF
+        pins.i2cWriteBuffer(chipAddress, buf, false)
+        buf[0] = motor + 4
+        buf[1] = 0xFFF
+        pins.i2cWriteBuffer(chipAddress, buf, false)
+        buf[0] = motor + 5
+        buf[1] = 0xFFF
+        pins.i2cWriteBuffer(chipAddress, buf, false)
+    }
+
+
+
 
     /**
      * Turns off all motors and servos.
