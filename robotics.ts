@@ -314,16 +314,16 @@ namespace Kitronik_Robotics_Board
         let buf = pins.createBuffer(2)
 
         buf[0] = motor
-        buf[1] = 0x00
+        buf[1] = 0xFFF
         pins.i2cWriteBuffer(chipAddress, buf, false)
         buf[0] = motor + 1
-        buf[1] = 0x1000
+        buf[1] = 0xF
         pins.i2cWriteBuffer(chipAddress, buf, false)
         buf[0] = motor + 4
-        buf[1] = 0x00
+        buf[1] = 0xFFF
         pins.i2cWriteBuffer(chipAddress, buf, false)
         buf[0] = motor + 5
-        buf[1] = 0x1000
+        buf[1] = 0xF
         pins.i2cWriteBuffer(chipAddress, buf, false)
     }
 
